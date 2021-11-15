@@ -1,0 +1,71 @@
+.matcard {
+    width: 657px;
+    height: 550px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    border: 2px solid white;
+    border-width: thin;
+}
+.div1 {
+    margin-top: 47px;
+}
+.example-section {
+    margin: 12px 0;
+}
+
+.example-margin {
+    margin: 0 12px;
+}
+.inputbox {
+    border-radius: 4px;
+    color: 20212;
+    border-width: thin;
+    font-size: 13px;
+    padding: 7px 3px 7px 4px;
+}
+.inputbox:focus {
+    outline: none !important;
+    border: 2px solid #1a73e8;
+    // box-shadow: 0 0 10px #719ECE;
+}
+.button {
+    border: none;
+    background-color: white;
+}
+
+.bottomdiv {
+    display: flex;
+    flex-direction: row;
+    float: right;
+    margin-top: 10px;
+    margin-right: 300px;
+}
+.signinbutton {
+    border: none;
+    background-color: white;
+    color: blue;
+    margin-top: 50px;
+    font-size: 20px;
+}
+.nextbutton {
+    border: none;
+    background-color: #1a73e8;
+    color: white;
+    margin-top: 50px;
+    font-size: 20px;
+    padding: 8px 23px 8px 23px;
+    margin-left: 112px;
+    border-radius: 4px;
+}
+.signininstead {
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.0107142857em;
+    font-weight: 500;
+    text-transform: none;
+    color: #1a73e8;
+    border: none;
+    background-color: white;
+}

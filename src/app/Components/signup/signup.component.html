@@ -1,0 +1,116 @@
+<div class="div1">
+
+
+    <form [formGroup]="signup" (ngSubmit)="onSubmit()">
+        <mat-card class="matcard">
+            <div fxLayout="coloumn" fxLayoutAlign="start center">
+
+                <div>
+                    <img src="../../../assets/SignupImages/account.svg" width="244px" height="244px" align="right"
+                        style="margin-top: 50px;">
+                </div>
+
+
+
+                <div style="display: flex;flex-direction: column;">
+                    <div>
+                        <p style="font-size: 18px;">Fundoo Notes</p>
+                    </div>
+                    <div
+                        style="font-size: 24px; counter-reset: #202124;font-weight: 400;font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;">
+                        Create your Google Account
+                    </div>
+                </div>
+
+
+
+                <div style="display: flex;flex-direction: row;">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Outline form field</mat-label>
+                        <input class="inputbox" matInput placeholder="FirstName">
+
+                        <mat-hint>Hint</mat-hint>
+
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Outline form field</mat-label>
+                        <input class="inputbox" matInput placeholder="LastName">
+
+                        <mat-hint>Hint</mat-hint>
+
+                    </mat-form-field>
+
+                </div>
+
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Outline form field</mat-label>
+                        <input class="inputbox" style="width: 328px;" matInput placeholder="UserName"
+                            formControlName="email">
+                        <div style="font-size: 10px;"> You can use letter,numbers & Periods</div>
+                        <mat-hint>Hint</mat-hint>
+
+                    </mat-form-field>
+                </div>
+
+                <div class="signininstead" style="color: #1a73e8">
+                    Use my current email address instead
+                </div>
+
+                <div style="display: flex;flex-direction: row;">
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Outline form field</mat-label>
+                        <input class="inputbox" matInput placeholder="Password" type="password">
+
+                        <mat-hint>Hint</mat-hint>
+
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Outline form field</mat-label>
+                        <input class="inputbox" matInput placeholder="Confirm">
+
+                        <mat-hint>Hint</mat-hint>
+
+                    </mat-form-field>
+
+
+
+
+                </div>
+                <div style="margin-top: -23px;color:  #5f6368;">
+                    Use 8 or more characters with a mix of letters, numbers & <br> symbols
+                </div>
+
+                <section class="example-section">
+                    <mat-checkbox class="example-margin">Show Password</mat-checkbox>
+
+                </section>
+
+                <div style="display: flex;flex-direction: row;">
+                    <div style="margin-top:61px;">
+                        <button mat-button class="signininstead">Sign
+                            in instead</button>
+                    </div>
+                    <div>
+                        <button (click)="onSubmit()" mat-button class="nextbutton">Next
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </mat-card>
+    </form>
+
+    <div class="bottomdiv">
+        <div>
+            <button class="button">Help</button>
+        </div>
+        <div>
+            <button class="button">privacy</button>
+        </div>
+        <div>
+            <button class="button">Terms</button>
+        </div>
+    </div>
+</div>
