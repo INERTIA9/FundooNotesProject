@@ -4,18 +4,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './Components/signup/signup.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SigninComponent } from './Components/signin/signin.component';
-
+import { ForgetpasswordComponent } from './Components/forgetpassword/forgetpassword.component';
+import { MatInputModule } from '@angular/material/input';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     SigninComponent,
+    ForgetpasswordComponent,
    
+
   ],
   imports: [
     BrowserModule,
@@ -25,8 +29,10 @@ import { SigninComponent } from './Components/signin/signin.component';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatCheckboxModule
-
+    MatCheckboxModule,
+    MatInputModule,
+    HttpClientModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
