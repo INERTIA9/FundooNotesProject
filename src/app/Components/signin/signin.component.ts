@@ -18,6 +18,23 @@ export class SigninComponent implements OnInit {
     })
   }
   onSubmit() {
+    console.log(this.loginForm.value);
+
+    if (this.loginForm.valid) {
+      let reqData = {
+        email: this.loginForm.value.email,
+        password: this.loginForm.value.password
+
+      }
+
+      this.userService.login(reqData).subscribe((result: any) => {
+        console.log(result);
+
+      })
+    } else {
+      console.log("invalid");
+
+    }
 
   }
 }
