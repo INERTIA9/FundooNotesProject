@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/userService/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -9,6 +10,7 @@ import { UserService } from 'src/app/services/userService/user.service';
 export class SignupComponent implements OnInit {
   signupform: FormGroup;
   submitted = false;
+  snackbar: any;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService) {
     this.signupform = this.formBuilder.group({
@@ -17,7 +19,7 @@ export class SignupComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       Confirm: ['', [Validators.required, Validators.minLength(6)]],
-      service:['advance']
+      service: ['advance']
 
     });
   }
@@ -28,13 +30,14 @@ export class SignupComponent implements OnInit {
   onSubmit() {
     console.log(this.signupform.value);
     if (this.signupform.valid) {
-      let reqData={
-       service:this.signupform.value.service,
-        firstName:this.signupform.value.firstName,
-        lastName:this.signupform.value.lastName,
-        email:this.signupform.value.email,
-        password:this.signupform.value.password
+      let reqData = {
+        service: this.signupform.value.service,
+        firstName: this.signupform.value.firstName,
+        lastName: this.signupform.value.lastName,
+        email: this.signupform.value.email,
+        password: this.signupform.value.password
       }
+      // this.matsnackbar.open('Registration succesfull', '', { duration: 1500 });
       console.log("valid");
       this.userService.registration(reqData).subscribe((response: any) => {
         console.log(response);
@@ -44,6 +47,7 @@ export class SignupComponent implements OnInit {
     }
     else {
       console.log("invalid");
+      // this.matsnackbar.open('Registration failed', '', { duration: 1500 });
     }
   }
 }
