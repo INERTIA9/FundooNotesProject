@@ -5,9 +5,11 @@ import { SigninComponent } from './Components/signin/signin.component';
 import { SignupComponent } from './Components/signup/signup.component';
 
 const routes: Routes = [
+  
   {path:'signup', component:SignupComponent},
   {path:'signin', component:SigninComponent},
-  {path:'forgetpassword',component:ForgetpasswordComponent}
+  {path:'forgetpassword',component:ForgetpasswordComponent},
+  {path:'resetpassword/:token',component:ForgetpasswordComponent},
 ];
 
 @NgModule({
