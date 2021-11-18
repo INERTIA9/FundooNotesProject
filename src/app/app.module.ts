@@ -12,6 +12,7 @@ import { SigninComponent } from './Components/signin/signin.component';
 import { ForgetpasswordComponent } from './Components/forgetpassword/forgetpassword.component';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,8 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatCheckboxModule,
     MatInputModule,
-    HttpClientModule
-  
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
