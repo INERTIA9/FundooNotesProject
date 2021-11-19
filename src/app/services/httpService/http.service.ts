@@ -8,7 +8,7 @@ export class HttpService {
   BaseUrl = environment.BaseUrl
   constructor(private httpClient: HttpClient) { }
 
-  postSevice(url:string = '', reqPayload:Object = {}, token: boolean = false, httpOptions:any = {}) {
+  postService(url:string = '', reqPayload:Object = {}, token: boolean = false, httpOptions:any = {}) {
     console.log(reqPayload);
      return this.httpClient.post(this.BaseUrl + url, reqPayload, token && httpOptions)
 
