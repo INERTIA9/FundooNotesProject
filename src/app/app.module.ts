@@ -12,6 +12,7 @@ import { SigninComponent } from './Components/signin/signin.component';
 import { ForgetpasswordComponent } from './Components/forgetpassword/forgetpassword.component';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
+import { ForgetemailComponent } from './Components/forgetemail/forgetemail.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     SignupComponent,
     SigninComponent,
     ForgetpasswordComponent,
+    ForgetemailComponent,
    
 
   ],
