@@ -1,0 +1,39 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="matcard ">
+
+        <div fxLayout="column" fxLayoutAlign="center center">
+
+            <mat-card-title>
+                <span style="color: #4285F4;">F</span>
+                <span style="color: #EA4335;">u</span>
+                <span style="color: #FBBC05;">n</span>
+                <span style="color: #4285F4;">d</span>
+                <span style="color: #34A853;">o</span>
+                <span style="color: #EB4E41;">o</span>
+            </mat-card-title>
+        </div>
+
+        <h1 style="margin-top: 5px;">Account recovery</h1>
+        <form [formGroup]="forgotPasswordform" (ngSubmit)="onSubmit()">
+
+
+
+
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <mat-form-field style="width: 400px; border-radius: 50%;" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                </mat-form-field>
+                <div style="margin-top: -20px;">
+                    <span>Enter RegisteredEmail</span>
+                </div>
+            </div>
+
+            <div>
+                <button mat-button class="nextbutton">Next
+                </button>
+            </div>
+        </form>
+
+    </mat-card>
+</div>
