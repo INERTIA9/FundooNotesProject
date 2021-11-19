@@ -10,13 +10,13 @@ import { UserService } from 'src/app/services/userService/user.service';
   styleUrls: ['./forgetpassword.component.scss']
 })
 export class ForgetpasswordComponent implements OnInit {
-  forgotPasswordform!: FormGroup;
+  resetPasswordform!: FormGroup;
   submitted = false;
   token: any;
   constructor(private formBuilder: FormBuilder, private userService: UserService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.forgotPasswordform = this.formBuilder.group({
+    this.resetPasswordform = this.formBuilder.group({
       Confirm: ['', [Validators.required, Validators.minLength(6)]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
@@ -25,13 +25,15 @@ export class ForgetpasswordComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.forgotPasswordform.value);
-    if (this.forgotPasswordform.valid) {
+    console.log(this.resetPasswordform.value);
+    if (this.resetPasswordform.valid) {
       let reqData = {
-        newPassword: this.forgotPasswordform.value.password,
+        newPassword: this.resetPasswordform.value.password,
       }
       console.log("data is in forgot password", reqData);
-      this.userService.resetPassword(reqData,this.token).subscribe((response: any) => console.log(response)
+      console.log(this.token);
+      
+      this.userService.resetPasswordForm(reqData,this.token).subscribe((response: any) =>{console.log(response)}
       )
 
     } else {
