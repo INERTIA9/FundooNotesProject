@@ -17,39 +17,51 @@ export class UserService {
     let headers = {
       headers: new HttpHeaders({
         'Content-type': 'application/json',
-        Authorization: this.token
+        // Authorization: this.token
       })
 
     }
-    return this.httpService.postSevice('user/userSignUp', reqPayload, false, headers)
+    return this.httpService.postService('user/userSignUp', reqPayload, false, headers)
   }
   login(reqData: any) {
     let headers = {
       headers: new HttpHeaders({
         'Content-type': 'application/json',
-        Authorization: this.token
+        // Authorization: this.token
       })
     }
-    return this.httpService.postSevice('user/login', reqData, false, headers)
+    return this.httpService.postService('user/login', reqData, false, headers)
   }
-  encode(reqData: any) {
+  encode(data:any) {
     const formBody = [];
-    for (const property in reqData) {
+    for (const property in data) {
       const encodedKey = encodeURIComponent(property);
-      const encodedValue = encodeURIComponent(reqData[property]);
+      const encodedValue = encodeURIComponent(data[property]);
       formBody.push(encodedKey + '=' + encodedValue);
     }
     return formBody.join('&');
   }
-  resetPassword(reqData: any, token: any) {
+//change pass-function of forgetpassword component
+resetPasswordForm(data: any,token:any) {
+  console.log("data is in user service",data);
+  let options = {
+    headers: new HttpHeaders({
+      'Authorization':token,
+      'Content-Type': 'application/x-www-form-urlencoded'
+    })
+  }
+  return this.httpService.postService('user/reset-password', this.encode(data), true, options);
+}
+
+  //to send email function of forget email
+  forgetpassword(reqData: any) {
+
     let headers = {
       headers: new Headers({
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': this.token
+        'Content-Type': 'application/json',
+        // 'Authorization': this.token
       })
     }
-    return this.httpService.postSevice('user/reset-password', this.encode(reqData), true, headers)
-
+    return this.httpService.postService('user/reset', reqData,false, headers)
   }
-
 }
