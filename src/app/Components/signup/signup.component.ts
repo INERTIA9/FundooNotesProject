@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/userService/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
@@ -11,12 +11,14 @@ export class SignupComponent implements OnInit {
   signupform: FormGroup;
   submitted = false;
   snackbar: any;
+  hide: boolean = true;
+  nameControl = new FormControl('');
 
   constructor(private formBuilder: FormBuilder, private userService: UserService) {
     this.signupform = this.formBuilder.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
+      firstName: ['', [Validators.required,Validators.pattern('[A-Za-z]*')]],
+      lastName: ['', [Validators.required,Validators.pattern('[A-Za-z0-9]*')]],
+      email: ['', [Validators.required, Validators.email,Validators.pattern('[[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$]*')]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       Confirm: ['', [Validators.required, Validators.minLength(6)]],
       service: ['advance']
@@ -49,6 +51,10 @@ export class SignupComponent implements OnInit {
       console.log("invalid");
       // this.matsnackbar.open('Registration failed', '', { duration: 1500 });
     }
+  }
+
+showPassword(){
+    this.hide= !this.hide;
   }
 }
 
