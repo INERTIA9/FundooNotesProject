@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/userService/user.service';
 
-
 @Component({
   selector: 'app-forgetpassword',
   templateUrl: './forgetpassword.component.html',
