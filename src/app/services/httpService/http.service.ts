@@ -13,8 +13,9 @@ export class HttpService {
      return this.httpClient.post(this.BaseUrl + url, reqPayload, token && httpOptions)
 
   }
-  getSevice() {
-
+  getSevice(url:string = '', token: boolean = false, httpOptions:any = null) {
+    
+    return this.httpClient.get(this.BaseUrl + url,token && httpOptions)
   }
   putSevice() {
 
