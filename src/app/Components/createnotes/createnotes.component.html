@@ -1,0 +1,55 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="center">
+    <mat-expansion-panel hideToggle (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+        (opened)="expansiondiv()" (closed)="closeexpansiondiv()">
+        <mat-expansion-panel-header>
+
+            <mat-panel-title>
+                <textarea class="textarea" matinput placeholder="Title" style="font-family: 'Google Sans',Roboto,Arial,sans-serif;font-size: 1rem;
+                font-weight: 500;
+                line-height: 1.5rem;" [(ngModel)]="title"></textarea>
+
+                <span class="example-spacer"></span>
+                <div fxLayout="row" fxLayoutAlign="space-evenly center" style="margin-top: 5px;">
+
+
+                    <div *ngIf="div1">
+                        <span title="New List">
+                            <img src="../../../assets/createnotesimages/tick.svg" class="opacity">
+
+                        </span>
+                        <span style="margin-left: 20px;" title="New note with drawing">
+                            <img src="../../../assets/createnotesimages/newnote.svg" class="opacity">
+
+                        </span>
+                        <span style="margin-left: 20px;" title="New note with image">
+                            <img src="../../../assets/createnotesimages/gallery.svg" class="opacity">
+                        </span>
+
+                    </div>
+
+
+                    <span *ngIf="span1" title="Pin note">
+                        <img src="../../../assets/Dashboardimages/push_pin_black_24dp.svg" class="opacity">
+                    </span>
+
+
+                </div>
+
+
+            </mat-panel-title>
+
+        </mat-expansion-panel-header>
+        <div *ngIf="div2">
+            <textarea class="textarea" matinput placeholder="Take a note" [(ngModel)]="description"></textarea>
+
+            <div style="margin-top: 10px; display: flex; flex-direction: row;gap: 250px;">
+                <app-icons></app-icons>
+
+            </div>
+
+            <div>
+                <button (click)="onclose()" mat-button class="closebutton">Close</button>
+            </div>
+        </div>
+    </mat-expansion-panel>
+</div>
