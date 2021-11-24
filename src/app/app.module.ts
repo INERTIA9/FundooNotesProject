@@ -13,6 +13,20 @@ import { ForgetpasswordComponent } from './Components/forgetpassword/forgetpassw
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { ForgetemailComponent } from './Components/forgetemail/forgetemail.component';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { CreatenotesComponent } from './Components/createnotes/createnotes.component';
+import { GetallnotesComponent } from './Components/getallnotes/getallnotes.component';
+import { DisplaycardsComponent } from './Components/displaycards/displaycards.component';
+import { IconsComponent } from './Components/icons/icons.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog';
+import { RemindersComponent } from './Components/reminders/reminders.component';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +35,12 @@ import { ForgetemailComponent } from './Components/forgetemail/forgetemail.compo
     SigninComponent,
     ForgetpasswordComponent,
     ForgetemailComponent,
+    DashboardComponent,
+    CreatenotesComponent,
+    GetallnotesComponent,
+    DisplaycardsComponent,
+    IconsComponent,
+    RemindersComponent,
    
 
   ],
@@ -35,6 +55,13 @@ import { ForgetemailComponent } from './Components/forgetemail/forgetemail.compo
     MatCheckboxModule,
     MatInputModule,
     HttpClientModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatExpansionModule,
+    MatMenuModule,
+    MatDialogModule
     
   ],
   providers: [],
