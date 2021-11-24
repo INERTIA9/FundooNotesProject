@@ -1,0 +1,41 @@
+.example-card {
+    min-width: 100px;
+    min-height: 100px;
+    height: auto;
+    max-width: 250px;
+    // margin-left: 100px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-grow: 1;
+}
+// .center {
+//     margin: auto;
+
+//     padding: 10px;
+// }
+
+.matcardtitle{
+    letter-spacing: .00625em;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    padding-top: 12px;
+}
+.matcarddescription{
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.5rem;
+}
+
+.div1 {
+    display: none;
+}
+  
+a:hover + .div1 {
+    display: block;
+   
+}
+
