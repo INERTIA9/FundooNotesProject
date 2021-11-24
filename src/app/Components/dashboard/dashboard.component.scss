@@ -1,0 +1,129 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+.keepnotesimage {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}
+.menubutton {
+    background: transparent;
+    color: #5f6368;
+    border: none;
+  
+}
+.mattoolbar {
+    background: transparent;
+    border: 1px solid transparent;
+    box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
+    position: fixed;
+}
+.keepbutton {
+    background: transparent;
+    color: #5f6368;
+    border: none;
+    margin-left: 10px;
+    display: inline-block;
+    font-family: "Product Sans", Arial, sans-serif;
+    font-size: 22px;
+    line-height: 24px;
+    padding-left: 8px;
+    position: relative;
+    top: -1.5px;
+    vertical-align: middle;
+}
+.search {
+    height: 50px;
+    width: 45%;
+    margin-left: 200px;
+    font-weight: 300;
+    padding-bottom: -1px;
+    outline: none;
+   
+    margin-top: -10px;
+}
+.example-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+ 
+  
+
+}
+
+.example-is-mobile .example-toolbar {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+}
+
+h1.example-app-name {
+    margin-left: 8px;
+}
+
+.example-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+       `<body>` to be our scrolling element for mobile layouts. */
+    flex: 1 0 auto;
+}
+#mySidenav a {
+    position: absolute;
+    left: -80px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+    left: 0;
+}
+.listbuttons {
+    border-radius: 0 25px 25px 0;
+}
+.listbuttons:hover{
+    background-color: #feefc3;
+}
+.listbuttons .active{
+    background: #feefc3;
+}
+.listbuttonsbackground {
+    background: transparent;
+    border: none;
+}
+.buttonname {
+    margin-left: 20px;
+    font-size: 15px;
+}
+.mat-form-field + .mat-form-field {
+    margin-left: 8px;
+}
+.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none; /*remove the resize handle on the bottom right*/
+}
