@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/userService/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -14,7 +15,7 @@ export class SignupComponent implements OnInit {
   hide: boolean = true;
   nameControl = new FormControl('');
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService,private router: Router) {
     this.signupform = this.formBuilder.group({
       firstName: ['', [Validators.required,Validators.pattern('[A-Za-z]*')]],
       lastName: ['', [Validators.required,Validators.pattern('[A-Za-z0-9]*')]],
@@ -24,6 +25,7 @@ export class SignupComponent implements OnInit {
       service: ['advance']
 
     });
+    
   }
 
   ngOnInit(): void {
@@ -55,6 +57,9 @@ export class SignupComponent implements OnInit {
 
 showPassword(){
     this.hide= !this.hide;
+  }
+  onsignin(){
+    this.router.navigateByUrl('/signin')
   }
 }
 
