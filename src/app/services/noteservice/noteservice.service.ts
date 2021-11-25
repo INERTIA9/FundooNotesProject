@@ -13,7 +13,7 @@ export class NoteserviceService {
     this.token = localStorage.getItem('token')
   }
 
-createnoteservice(reqPayload: any) {
+  createnoteservice(reqPayload: any) {
 
     console.log(reqPayload);
 
@@ -37,7 +37,7 @@ createnoteservice(reqPayload: any) {
       })
 
     }
-    return this.httpService.getSevice('notes/getNotesList',true,headers)
+    return this.httpService.getSevice('notes/getNotesList', true, headers)
   }
   getreminderservice() {
 
@@ -49,8 +49,56 @@ createnoteservice(reqPayload: any) {
       })
 
     }
-    return this.httpService.getSevice('notes/getReminderNotesList',true,headers)
+    return this.httpService.getSevice('notes/getReminderNotesList', true, headers)
+  }
+  //to move to trash
+  trashnoteservice(reqPayload: any) {
+    console.log("in trashnoteservice", reqPayload);
+
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': this.token
+      })
+
+    }
+    return this.httpService.postService('notes/trashNotes', reqPayload, true, httpOptions)
+  }
+  //to get trash notes
+  gettrashservice() {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': this.token
+      })
+
+    }
+    return this.httpService.getSevice('notes/getTrashNotesList', true, httpOptions)
+  }
+  //to move to archive
+  archivedservice(reqPayload: any) {
+    console.log("in trashnoteservice", reqPayload);
+
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': this.token
+      })
+
+    }
+    return this.httpService.postService('notes/archiveNotes', reqPayload, true, httpOptions)
   }
 
-  
+  //to get archive
+  getarchiveservice() {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': this.token
+      })
+
+    }
+    return this.httpService.getSevice('notes/getArchiveNotesList', true, httpOptions)
+  }
 }
+
