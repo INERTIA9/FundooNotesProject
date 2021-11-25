@@ -8,7 +8,8 @@ import { NoteserviceService } from 'src/app/services/noteservice/noteservice.ser
 export class GetallnotesComponent implements OnInit {
   Notelist: any;
   note: any;
- 
+  notedata: any
+
   constructor(private noteservice: NoteserviceService) { }
 
   ngOnInit(): void {
@@ -20,7 +21,10 @@ export class GetallnotesComponent implements OnInit {
       console.log(result);
       this.Notelist = result.data.data
       this.Notelist.reverse()
-    
+      this.Notelist = this.Notelist.filter((notedata: any) => {
+        return notedata.isDeleted === false;
+
+      })
 
     }, error => {
       console.log(error);
@@ -28,11 +32,16 @@ export class GetallnotesComponent implements OnInit {
     })
 
   }
+
   receiveMessage($event: any) {
     console.log($event);
     this.getallnotes()
-    
+
     // this.message = $event
+  }
+  receiveMessagefromdisplaycard($event: any) {
+    console.log("insidegetallnotes",$event);
+    this.getallnotes()
   }
 }
 
