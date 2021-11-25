@@ -15,8 +15,8 @@
     <button mat-icon-button style="border: none; background: transparent;" title="Add image">
         <img src="../../../assets/icons/picture.svg" style="opacity: 0.71;">
     </button>
-    <button mat-icon-button style="border: none; background: transparent;" title="archive">
-        <img src="../../../assets/icons/dropbox.svg" style="opacity: 0.71;">
+    <button (click)="onarchive()"  mat-icon-button style="border: none; background: transparent;" title="archive">
+        <img  src="../../../assets/icons/dropbox.svg" style="opacity: 0.71;">
     </button>
     <button title="More" style="border: none;background: transparent;opacity: 0.71;" mat-icon-button
         [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
@@ -35,7 +35,7 @@
 
             <span>Show checkboxes</span>
         </button>
-        <button mat-menu-item>
+        <button (click)="ondelete()" mat-menu-item>
 
             <span>Delete</span>
         </button>
