@@ -1,0 +1,10 @@
+.example-card {
+    min-width: 100px;
+    min-height: 100px;
+    height: fit-content;
+    max-width: 300px;
+    // margin-left: 100px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-grow: 1;
+}
