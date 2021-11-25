@@ -1,16 +1,19 @@
 <div style="display: flex;flex-wrap:wrap;gap:15px;flex-direction: row;justify-content: center;">
-    <mat-card   class="example-card" *ngFor='let note of notesarray'>
+    <mat-card class="example-card" *ngFor='let note of notesarray'>
         <div>
             <img src="../../../assets/Dashboardimages/push_pin_black_24dp.svg" style="float: right;">
-            <mat-card-title  (click)="openDialog(note)" class="matcardtitle" >{{note.title}}</mat-card-title>
+            <mat-card-title (click)="openDialog(note)" class="matcardtitle">{{note.title}}</mat-card-title>
 
             <mat-card-content (click)="openDialog(note)">
                 <p class="matcarddescription">{{note.description}}</p>
             </mat-card-content>
-
-            <mat-card-actions>
-                <app-icons></app-icons>
-            </mat-card-actions>
+            <mat-card-content>
+               
+            </mat-card-content>
+           
+            <div>
+                <app-icons [noteCard]='note' (iconstodisplay)="recievefromiconstodisplaycard($event)"></app-icons>
+            </div>
         </div>
     </mat-card>
 </div>
