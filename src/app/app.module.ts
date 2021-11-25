@@ -26,6 +26,10 @@ import { IconsComponent } from './Components/icons/icons.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import { RemindersComponent } from './Components/reminders/reminders.component';
+import { UpdatenotesComponent } from './Components/updatenotes/updatenotes.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { GettrashlistComponent } from './Components/gettrashlist/gettrashlist.component';
+import { GetarchivedlistComponent } from './Components/getarchivedlist/getarchivedlist.component';
 
 
 @NgModule({
@@ -41,6 +45,9 @@ import { RemindersComponent } from './Components/reminders/reminders.component';
     DisplaycardsComponent,
     IconsComponent,
     RemindersComponent,
+    UpdatenotesComponent,
+    GettrashlistComponent,
+    GetarchivedlistComponent,
    
 
   ],
@@ -61,7 +68,8 @@ import { RemindersComponent } from './Components/reminders/reminders.component';
     MatListModule,
     MatExpansionModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    FlexLayoutModule
     
   ],
   providers: [],
