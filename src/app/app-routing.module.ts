@@ -6,9 +6,12 @@ import { DisplaycardsComponent } from './Components/displaycards/displaycards.co
 import { ForgetemailComponent } from './Components/forgetemail/forgetemail.component';
 import { ForgetpasswordComponent } from './Components/forgetpassword/forgetpassword.component';
 import { GetallnotesComponent } from './Components/getallnotes/getallnotes.component';
+import { GetarchivedlistComponent } from './Components/getarchivedlist/getarchivedlist.component';
+import { GettrashlistComponent } from './Components/gettrashlist/gettrashlist.component';
 import { IconsComponent } from './Components/icons/icons.component';
 import { SigninComponent } from './Components/signin/signin.component';
 import { SignupComponent } from './Components/signup/signup.component';
+import { AuthGuard } from './services/Authorisationservices/auth.guard';
 
 const routes: Routes = [
 
@@ -17,12 +20,11 @@ const routes: Routes = [
   { path: 'resetpassword/:token', component: ForgetpasswordComponent },
   { path: 'forgetemail', component: ForgetemailComponent },
   {
-    path: 'dashboard', component: DashboardComponent,
+    path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
     children: [
-
-      { path: 'notes', component: GetallnotesComponent }
-
-
+      { path: 'notes', component: GetallnotesComponent },
+      { path: 'gettrash', component: GettrashlistComponent },
+      {path:'getarchive',component:GetarchivedlistComponent}
     ]
   }
 
