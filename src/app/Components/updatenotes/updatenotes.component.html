@@ -1,0 +1,20 @@
+<div style="display: flex;flex-direction: row;">
+    <input matInput [(ngModel)]="title" placeholder="title">
+    <img src="../../../assets/Dashboardimages/push_pin_black_24dp.svg" style="float: right;">
+</div>
+
+
+<div>
+    <textarea matInput [(ngModel)]="description" placeholder="description"></textarea>
+</div>
+
+<div fxLayout="coloumn" fxLayoutAlign="space-between end">
+    <div>
+        <app-icons></app-icons>
+
+    </div>
+    <div>
+        <button class="button">close</button>
+    </div>
+
+</div>
