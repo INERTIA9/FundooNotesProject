@@ -8,7 +8,7 @@ import { NoteserviceService } from 'src/app/services/noteservice/noteservice.ser
 })
 export class GettrashlistComponent implements OnInit {
 
-  notelisttrash: any
+  Notelist:any
 
   constructor(private noteservice: NoteserviceService) { }
 
@@ -18,7 +18,8 @@ export class GettrashlistComponent implements OnInit {
   gettrash() {
     this.noteservice.gettrashservice().subscribe((result: any) => {
       console.log("ongettrash", result);
-      this.notelisttrash = result.data.data
+      this.Notelist = result.data.data
+    
       
     }, error => {
       console.log(error);
