@@ -14,6 +14,7 @@ export class SigninComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -31,8 +32,8 @@ export class SigninComponent implements OnInit {
 
       this.userService.login(reqData).subscribe((result: any) => {
         console.log(result);
-        localStorage.setItem('token', result.id)
-        this.router.navigateByUrl('/dashboard')
+        localStorage.setItem('token',result.id);
+        this.router.navigateByUrl('/dashboard/notes')
 
       }, error => {
         console.log(error);
