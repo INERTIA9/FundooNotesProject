@@ -103,17 +103,30 @@ export class NoteserviceService {
 
   //to update
 
-updatenoteservice(reqPayload:any){
-  
-  let httpOptions = {
-    headers: new HttpHeaders({
-      'Content-type': 'application/json',
-      'Authorization': this.token
-    })
+  updatenoteservice(reqPayload: any) {
 
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': this.token
+      })
+
+    }
+    return this.httpService.postService('notes/updateNotes', reqPayload, true, httpOptions)
   }
-  return this.httpService.postService('notes/updateNotes', reqPayload,true, httpOptions)
+
+  //delete foreever
+
+deleteforever(reqPayload:any) {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': this.token
+      })
+
+    }
+    return this.httpService.postService('notes/deleteForeverNotes',reqPayload,true,httpOptions)
+  }
 }
-  }
 
 
