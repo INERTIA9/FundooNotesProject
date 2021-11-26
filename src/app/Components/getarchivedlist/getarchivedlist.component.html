@@ -1,1 +1,3 @@
-<app-displaycards [notesarray]='Notelist'></app-displaycards>
+<div style="margin-top: 50px;">
+<app-displaycards [notesarray]='Notelist' (displaytogetallnotes)="receiveMessagefromdisplaycard($event)"></app-displaycards>
+</div>
