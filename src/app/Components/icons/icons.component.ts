@@ -36,7 +36,7 @@ export class IconsComponent implements OnInit {
     }
     this.noteservices.archivedservice(req).subscribe((res:any)=>{
       console.log((res.data));
-      
+      this.iconstodisplay.emit(res)
     })
   }
 }
