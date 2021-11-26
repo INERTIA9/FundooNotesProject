@@ -1,13 +1,5 @@
 .example-card {
-    min-width: 100px;
-    min-height: 100px;
-    height: fit-content;
-    max-width: 300px;
-    // margin-left: 100px;
-    margin-bottom: 10px;
-    display: flex;
-    flex-grow: 1;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px; 
 }
 // .center {
 //     margin: auto;
@@ -29,6 +21,8 @@
     font-weight: 400;
     letter-spacing: 0;
     line-height: 1.5rem;
+    word-wrap: break-word;
 }
+
 
 
