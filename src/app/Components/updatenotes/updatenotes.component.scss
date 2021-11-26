@@ -15,3 +15,13 @@ button{
     background-color:transparent;
     border: none;
 }
+.update{
+    box-sizing: border-box;
+    bottom: 0;
+    transition-property: opacity;
+    color: rgba(0,0,0, 0.54 );
+    border: black;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
