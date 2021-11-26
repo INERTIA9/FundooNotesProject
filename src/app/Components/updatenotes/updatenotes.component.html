@@ -9,12 +9,17 @@
 </div>
 
 <div fxLayout="coloumn" fxLayoutAlign="space-between end">
-    <div>
-        <app-icons></app-icons>
+    <div style="margin-left: -22px;">
+        <mat-card style="margin-top: 10px;width: 564px;margin-top: 25px;bottom: -23px;">
+            <div style="display: flex;flex-direction: row;">
+                <app-icons></app-icons>
+                <span class="example-spacer"></span>
+                <button (click)="onupdate()" class="button">close</button>
+            </div>
+        </mat-card>
+    </div>
 
-    </div>
-    <div>
-        <button  (click)="onupdate()" class="button">close</button>
-    </div>
+
+
 
 </div>
