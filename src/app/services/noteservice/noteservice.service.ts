@@ -100,5 +100,20 @@ export class NoteserviceService {
     }
     return this.httpService.getSevice('notes/getArchiveNotesList', true, httpOptions)
   }
+
+  //to update
+
+updatenoteservice(reqPayload:any){
+  
+  let httpOptions = {
+    headers: new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': this.token
+    })
+
+  }
+  return this.httpService.postService('notes/updateNotes', reqPayload,true, httpOptions)
 }
+  }
+
 

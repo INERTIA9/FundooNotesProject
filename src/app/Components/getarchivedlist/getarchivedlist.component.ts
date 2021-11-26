@@ -14,9 +14,9 @@ export class GetarchivedlistComponent implements OnInit {
   }
 
   getarchive() {
-    this.noteservice.getarchiveservice().subscribe((result) => {
+    this.noteservice.getarchiveservice().subscribe((result:any) => {
       console.log('ongetarchive',result);
-      this.Notelist = result;
+      this.Notelist = result.data.data;
     }, error => {
       console.log(error);
 

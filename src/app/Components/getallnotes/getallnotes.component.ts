@@ -22,7 +22,7 @@ export class GetallnotesComponent implements OnInit {
       this.Notelist = result.data.data
       this.Notelist.reverse()
       this.Notelist = this.Notelist.filter((notedata: any) => {
-        return notedata.isDeleted === false;
+        return notedata.isDeleted === false && notedata.isArchived===false;
 
       })
 

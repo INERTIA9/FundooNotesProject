@@ -34,7 +34,9 @@ export class DisplaycardsComponent implements OnInit {
 
 
     dialogRef.afterClosed().subscribe(result => {
+      this.displaytogetallnotes.emit(this.sentmsg)
       console.log(`Dialog result: ${result}`);
+
     });
   }
   recievefromiconstodisplaycard($event: any) {
