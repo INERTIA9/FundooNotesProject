@@ -7,6 +7,7 @@ import { NoteserviceService } from 'src/app/services/noteservice/noteservice.ser
 })
 export class GetarchivedlistComponent implements OnInit {
   Notelist: any
+
   constructor(private noteservice: NoteserviceService) { }
 
   ngOnInit(): void {
@@ -14,12 +15,21 @@ export class GetarchivedlistComponent implements OnInit {
   }
 
   getarchive() {
-    this.noteservice.getarchiveservice().subscribe((result:any) => {
-      console.log('ongetarchive',result);
+    this.noteservice.getarchiveservice().subscribe((result: any) => {
+      console.log('ongetarchive', result);
       this.Notelist = result.data.data;
+
+      this.Notelist = this.Notelist.filter((notedata: any) => {
+        return notedata.isDeleted === false;
+
+      })
     }, error => {
       console.log(error);
 
     })
+  }
+  receiveMessagefromdisplaycard($event: any) {
+    console.log("insidegetallnotes", $event);
+    this.getarchive();
   }
 }
