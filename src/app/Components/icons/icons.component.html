@@ -1,45 +1,60 @@
 <div style="flex-direction: row;display: flex; gap: 13px;">
-
-    <button mat-icon-button style="border: none; background: transparent;" title="Remind me">
-        <img src="../../../assets/icons/bell.svg" style="opacity: 0.71;">
-    </button>
-
-    <button mat-icon-button style="border: none; background: transparent;" title="Collaborator">
-        <img src="../../../assets/icons/collabarator.svg" style="opacity: 0.71;">
-    </button>
-
-    <button mat-icon-button style="border: none; background: transparent;" title="Change color">
-        <img src="../../../assets/icons/paint.svg" style="opacity: 0.71;">
-    </button>
-
-    <button mat-icon-button style="border: none; background: transparent;" title="Add image">
-        <img src="../../../assets/icons/picture.svg" style="opacity: 0.71;">
-    </button>
-    <button (click)="onarchive()"  mat-icon-button style="border: none; background: transparent;" title="archive">
-        <img  src="../../../assets/icons/dropbox.svg" style="opacity: 0.71;">
-    </button>
-    <button title="More" style="border: none;background: transparent;opacity: 0.71;" mat-icon-button
-        [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-
-            <span>Add label</span>
+    <div *ngIf=!isTrashed>
+        <button mat-icon-button style="border: none; background: transparent;" title="Remind me">
+            <img src="../../../assets/icons/bell.svg" style="opacity: 0.71;">
         </button>
-        <button mat-menu-item>
 
-            <span>Add drawing</span>
+        <button  mat-icon-button style="border: none; background: transparent;"
+            title="Collaborator">
+            <img src="../../../assets/icons/collabarator.svg" style="opacity: 0.71;">
         </button>
-        <button mat-menu-item>
 
-            <span>Show checkboxes</span>
+        <button mat-icon-button style="border: none; background: transparent;" title="Change color">
+            <img src="../../../assets/icons/paint.svg" style="opacity: 0.71;">
         </button>
-        <button (click)="ondelete()" mat-menu-item>
 
-            <span>Delete</span>
+        <button mat-icon-button style="border: none; background: transparent;" title="Add image">
+            <img src="../../../assets/icons/picture.svg" style="opacity: 0.71;">
         </button>
-    </mat-menu>
+        <button (click)="onarchive()" mat-icon-button style="border: none; background: transparent;" title="archive">
+            <img src="../../../assets/icons/dropbox.svg" style="opacity: 0.71;">
+        </button>
+        <button title="More" style="border: none;background: transparent;opacity: 0.71;" mat-icon-button
+            [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
 
+                <span>Add label</span>
+            </button>
+            <button mat-menu-item>
+
+                <span>Add drawing</span>
+            </button>
+            <button mat-menu-item>
+
+                <span>Show checkboxes</span>
+            </button>
+            <button (click)="ondelete()" mat-menu-item>
+
+                <span>Delete</span>
+            </button>
+        </mat-menu>
+    </div>
+
+    <div *ngIf="isTrashed" class="new">
+
+        
+        <button  (click)="ondeleteforever()" mat-icon-button style="border: none; background: transparent; size: 30px;" title="deleteforever">
+            <img class="trashbuttons" src="../../../assets/trashimages/delete_forever_black_24dp.svg" style="opacity: 0.71;border-radius: 40%;">
+        </button>
+
+
+        <button mat-icon-button style="border: none; background: transparent;size: 30px;" title="Restore">
+            <img  class="trashbuttons" src="../../../assets/trashimages/restore_from_trash_black_24dp.svg" style="opacity: 0.71;border-radius: 40%;">
+        </button>
+
+    </div>
 
 </div>
