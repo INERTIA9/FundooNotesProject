@@ -20,7 +20,7 @@ export class HttpService {
   putSevice() {
 
   }
-  deleteSevice(url: string = '', token: boolean = false, httpOptions: any = null) {
+  deleteSevice(url: string = '', reqPayload=null, token: boolean = false, httpOptions: any = null) {
     return this.httpClient.get(this.BaseUrl + url, token && httpOptions)
   }
   patchSevice() {
