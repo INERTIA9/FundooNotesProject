@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/userService/user.service';
 import { Router } from '@angular/router';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-signin',
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
 export class SigninComponent implements OnInit {
   loginForm!: FormGroup;
   submitted = false;
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) { }
+  hide: boolean = true;
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     
@@ -33,10 +35,17 @@ export class SigninComponent implements OnInit {
       this.userService.login(reqData).subscribe((result: any) => {
         console.log(result);
         localStorage.setItem('token',result.id);
+        this._snackBar.open("login succesfull" ,'',{
+          duration:2000,
+        })
         this.router.navigateByUrl('/dashboard/notes')
 
       }, error => {
         console.log(error);
+        this._snackBar.open("Insert Valid Data",'',{
+          duration:2000,
+        })
+
       })
     } else {
       console.log("invalid");
