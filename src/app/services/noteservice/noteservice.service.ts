@@ -40,8 +40,6 @@ export class NoteserviceService {
     return this.httpService.getSevice('notes/getNotesList', true, headers)
   }
   getreminderservice() {
-
-
     let headers = {
       headers: new HttpHeaders({
         'Content-type': 'application/json',
@@ -126,6 +124,16 @@ deleteforever(reqPayload:any) {
 
     }
     return this.httpService.postService('notes/deleteForeverNotes',reqPayload,true,httpOptions)
+  }
+changecolorservice(reqPayload:any){
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': this.token
+      })
+
+    }
+    return this.httpService.postService('notes/changesColorNotes',reqPayload,true,httpOptions)
   }
 }
 
