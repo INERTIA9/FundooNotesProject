@@ -30,17 +30,18 @@
             <button (click)="onforgetemail()" mat-button class="createaccount">Forget
                 email?</button>
         </div>
+
         <div>
             <mat-form-field style="width: 400px;" appearance="outline">
                 <mat-label>password</mat-label>
-                <input matInput formControlName="password">
-
-
-
+                <input matInput [type]="hide?'password':'text'" matInput formControlName="password">
             </mat-form-field>
+
         </div>
+
+
         <div style="margin-top: -20px;">
-            <button  mat-button class="createaccount">Forget
+            <button mat-button class="createaccount">Forget
                 Password?</button>
         </div>
 
