@@ -1,11 +1,15 @@
 .example-card {
-    border-radius: 10px 10px 10px 10px; 
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: 250px;
+    min-height: 125px;
+    padding: 16px 16px 8px;
+    border: 1px solid ;
+    border-radius: 9px;
+    border-width: 1px ;
+    margin-bottom: 25px;
 }
-// .center {
-//     margin: auto;
-
-//     padding: 10px;
-// }
 
 .matcardtitle {
     letter-spacing: 0.00625em;
@@ -23,6 +27,9 @@
     line-height: 1.5rem;
     word-wrap: break-word;
 }
-
-
-
+.example-card .icon{
+    visibility: hidden;
+}
+.example-card:hover .icon{
+    visibility: visible;
+}
