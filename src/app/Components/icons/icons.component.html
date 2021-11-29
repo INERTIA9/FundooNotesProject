@@ -1,26 +1,44 @@
-<div style="flex-direction: row;display: flex; gap: 13px;">
-    <div *ngIf=!isTrashed>
-        <button mat-icon-button style="border: none; background: transparent;" title="Remind me">
-            <img src="../../../assets/icons/bell.svg" style="opacity: 0.71;">
+<div style="flex-direction: row;display: flex; gap: 13px; ">
+    <div style="display: flex;flex-direction: row;gap: 10px;"> 
+        <button *ngIf=!isTrashed mat-icon-button style="border: none; background: transparent;" title="Remind me">
+            <img src="../../../assets/icons/bell.svg" class="images">
         </button>
 
-        <button  mat-icon-button style="border: none; background: transparent;"
-            title="Collaborator">
-            <img src="../../../assets/icons/collabarator.svg" style="opacity: 0.71;">
+        <button *ngIf=!isTrashed mat-icon-button style="border: none; background: transparent;" title="Collaborator">
+            <img src="../../../assets/icons/collabarator.svg" class="images">
         </button>
 
-        <button mat-icon-button style="border: none; background: transparent;" title="Change color">
-            <img src="../../../assets/icons/paint.svg" style="opacity: 0.71;">
+        <button [matMenuTriggerFor]="aboveMenu" *ngIf=!isTrashed mat-icon-button
+            style="border: none; background: transparent;" title="Change color">
+            <img src="../../../assets/icons/paint.svg" class="images">
+        </button>
+        <mat-menu #aboveMenu="matMenu" yPosition="above">
+            <div *ngFor='let c of colorarray'>
+                <button (click)="changecolor(c)">
+                    <mat-icon [ngStyle]="{color:c}">circle</mat-icon>
+                </button>
+            </div>
+        </mat-menu>
+
+
+        <button *ngIf=!isTrashed mat-icon-button style="border: none; background: transparent;" title="Add image">
+            <img src="../../../assets/icons/picture.svg" class="images">
         </button>
 
-        <button mat-icon-button style="border: none; background: transparent;" title="Add image">
-            <img src="../../../assets/icons/picture.svg" style="opacity: 0.71;">
+        <button *ngIf="!isTrashed && !isArchived" (click)="onarchive()" mat-icon-button
+            style="border: none; background: transparent;" title="archive">
+            <img src="../../../assets/icons/dropbox.svg" class="images">
         </button>
-        <button (click)="onarchive()" mat-icon-button style="border: none; background: transparent;" title="archive">
-            <img src="../../../assets/icons/dropbox.svg" style="opacity: 0.71;">
+
+
+        <button *ngIf=isArchived (click)="onunarchive()" mat-icon-button style="border: none; background: transparent;"
+            title="unarchive">
+            <img src="../../../assets/icons/unarchive_black_24dp.svg" class="images">
         </button>
-        <button title="More" style="border: none;background: transparent;opacity: 0.71;" mat-icon-button
-            [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+
+
+        <button *ngIf=!isTrashed title="More" style="border: none;background: transparent;opacity: 0.71;"
+            mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
             <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
@@ -45,16 +63,21 @@
 
     <div *ngIf="isTrashed" class="new">
 
-        
-        <button  (click)="ondeleteforever()" mat-icon-button style="border: none; background: transparent; size: 30px;" title="deleteforever">
-            <img class="trashbuttons" src="../../../assets/trashimages/delete_forever_black_24dp.svg" style="opacity: 0.71;border-radius: 40%;">
+
+        <button (click)="ondeleteforever()" mat-icon-button style="border: none; background: transparent; size: 30px;"
+            title="deleteforever">
+            <img class="trashbuttons" src="../../../assets/trashimages/delete_forever_black_24dp.svg"
+                style="opacity: 0.71;border-radius: 40%;">
         </button>
 
 
-        <button mat-icon-button style="border: none; background: transparent;size: 30px;" title="Restore">
-            <img  class="trashbuttons" src="../../../assets/trashimages/restore_from_trash_black_24dp.svg" style="opacity: 0.71;border-radius: 40%;">
+        <button (click)="onRestore()" mat-icon-button style="border: none; background: transparent;size: 30px;" title="Restore">
+            <img class="trashbuttons" src="../../../assets/trashimages/restore_from_trash_black_24dp.svg"
+                style="opacity: 0.71;border-radius: 40%;">
         </button>
 
     </div>
+
+
 
 </div>
