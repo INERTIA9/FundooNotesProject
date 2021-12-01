@@ -25,3 +25,7 @@ button{
 .example-spacer {
     flex: 1 1 auto;
 }
+::ng-deep.mat-dialog-container{
+    padding:0px;
+    overflow: hidden;
+}
