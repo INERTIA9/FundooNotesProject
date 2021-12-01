@@ -26,6 +26,9 @@
     letter-spacing: 0;
     line-height: 1.5rem;
     word-wrap: break-word;
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+   
 }
 .example-card .icon{
     visibility: hidden;
