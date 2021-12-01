@@ -6,7 +6,7 @@ import { HttpService } from '../httpService/http.service';
   providedIn: 'root'
 })
 export class NoteserviceService {
-
+id:any
   token: any
   forgotPasswordform: any;
   constructor(private httpService: HttpService) {
@@ -134,6 +134,18 @@ changecolorservice(reqPayload:any){
 
     }
     return this.httpService.postService('notes/changesColorNotes',reqPayload,true,httpOptions)
+  }
+
+
+  addcollaborators(reqPayload:any,id:any){
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': this.token
+      })
+
+    }
+    return this.httpService.postService('notes/' +id +'/'+ 'AddcollaboratorsNotes',reqPayload,true,httpOptions)
   }
 }
 
