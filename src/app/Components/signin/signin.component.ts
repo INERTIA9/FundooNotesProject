@@ -35,6 +35,10 @@ export class SigninComponent implements OnInit {
       this.userService.login(reqData).subscribe((result: any) => {
         console.log(result);
         localStorage.setItem('token',result.id);
+        localStorage.setItem('firstName',result.firstName);
+        localStorage.setItem('lastName',result.lastName);
+        localStorage.setItem('email',result.email);
+
         this._snackBar.open("login succesfull" ,'',{
           duration:2000,
         })
