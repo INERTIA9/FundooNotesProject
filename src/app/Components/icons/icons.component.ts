@@ -4,6 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { GettrashlistComponent } from '../gettrashlist/gettrashlist.component';
 import { GetarchivedlistComponent } from '../getarchivedlist/getarchivedlist.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { CollaboratorsComponent } from '../collaborators/collaborators.component';
+
 
 @Component({
   selector: 'app-icons',
@@ -13,10 +16,12 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 export class IconsComponent implements OnInit {
   @Input() noteCard: any
   @Output() iconstodisplay = new EventEmitter<string>();
-  constructor(private noteservices: NoteserviceService, private activatedroute: ActivatedRoute, private _snackBar: MatSnackBar) { }
+  note: any;
+  constructor(private noteservices: NoteserviceService, private activatedroute: ActivatedRoute, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
   isTrashed: boolean = false
   isArchived: boolean = false
-  colorarray = ['#F44336', 'red', 'white', 'blue', 'black'];
+
+  colorarray = ['#F28B82', '#FBBC05', '#FFF475', '#CCFF90', '#A7FFEB', '#CBF0F8', '#AECBFA', '#D7AEFB', '#FDCFE8', '#E6C9A8', '#E8EAED'];
 
   ngOnInit(): void {
     let com = this.activatedroute.snapshot.component;
@@ -92,18 +97,32 @@ export class IconsComponent implements OnInit {
 
 
 
-changecolor(data: any) {
-    let req = {
-      noteIdlist: [this.noteCard.id],
-      color: data
-    }
-    this.noteservices.changecolorservice(req).subscribe((res: any) => {
-      console.log("in icon");
-      console.log(res.data);
-      this.iconstodisplay.emit(res)
+  setColor(color: any) {
+    console.log('color', color);
+    console.log(this.noteCard);
 
-    })
+    this.noteCard.color = color;
+    console.log('color', color);
+    let data = {
+      color: color,
+      noteIdList: [this.noteCard.id],
+    }
+    console.log(data);
+    this.noteservices.changecolorservice(data).subscribe(
+      (response: any) => {
+
+        console.log('Response of setColour', response);
+        this.iconstodisplay.emit(color)
+      },
+      (error: any) => {
+        console.log('archive Error at icons methods', error);
+
+      }
+    );
+
   }
+
+
   onunarchive() {
     let req = {
       noteIdList: [this.noteCard.id],
@@ -111,7 +130,7 @@ changecolor(data: any) {
     }
     this.noteservices.archivedservice(req).subscribe((res: any) => {
       console.log((res.data));
-      this._snackBar.open("Note Archived", 'Undo', {
+      this._snackBar.open("Note UnArchived", 'Undo', {
         horizontalPosition: 'start',
         duration: 2000,
       })
@@ -138,4 +157,24 @@ changecolor(data: any) {
 
     })
   }
+
+  openDialogcollab() {
+    const dialogRef = this.dialog.open(CollaboratorsComponent, {
+      width: "600px",
+      data: this.noteCard
+
+
+    });
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      // this.displaytogetallnotes.emit(this.sentmsg)
+      console.log(`Dialog result: ${result}`);
+
+    });
+  }
 }
+function color(arg0: string, color: any) {
+  throw new Error('Function not implemented.');
+}
+
