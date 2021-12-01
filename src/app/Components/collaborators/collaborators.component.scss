@@ -1,0 +1,70 @@
+.ownerInfo {
+    align-items: center;
+    display    : -webkit-box;
+    display    : -webkit-flex;
+    display    : flex;
+    margin-left: 5px;
+    font-size  : 13px;
+ }
+ .buttons {
+    float: right;
+   background-color: transparent;
+   border: none;
+   margin-right: 40px;
+
+
+ }
+ .info{
+     margin-left: 15px;
+    font-weight: 700;
+    font-size: 13px;
+    color: #202124;
+    direction: ltr;
+    font-family: 'Roboto',arial,sans-serif;
+
+ }
+ .titletext{
+    font-size: 18px;
+    font-weight: 500;
+    height: 25px;
+    direction: ltr;
+    font-family: 'Roboto',arial,sans-serif;
+ }
+ .addcollabimage{
+    height: 18px;
+    width: 22px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid;padding: 8px 6px 8px 6px;
+    margin-left: 3px;
+    opacity: .5;
+    margin-top: 6px;
+ }
+ .owner{
+    font-style: italic;
+    margin-left: 5px;
+    font-size: 13px;
+    color: #202124;
+    direction: ltr;
+    font-family: 'Roboto',arial,sans-serif;
+ }
+ .collabinfo{
+   display: flex;
+   flex-direction: row;
+
+ }
+ .collabtext{
+   border: none;
+   background-color: transparent;
+   outline: none;
+   color: #3c4043;
+   font-size: 13px;
+   font-family: 'Roboto',arial,sans-serif;
+   height: 25px;
+   overflow: hidden;
+    padding: 0;
+    margin-left: 18px;
+    line-height: 2rem;
+}
+ 
