@@ -1,18 +1,19 @@
-<div fxLayout="row" fxLayoutAlign="center center" class="center">
+<div fxLayout="row" fxLayoutAlign="center center" class="center" fx.xs="400px" fxFlex="500px">
     <mat-expansion-panel hideToggle (opened)="panelOpenState = true" (closed)="panelOpenState = false"
         (opened)="expansiondiv()" (closed)="closeexpansiondiv()">
-        <mat-expansion-panel-header style="width: 500px;">
+        <mat-expansion-panel-header style="width: 500px; height: auto;">
 
-            <mat-panel-title>
-                <textarea class="textarea" matinput placeholder="Title" style="font-family: 'Google Sans',Roboto,Arial,sans-serif;font-size: 1rem;
+            <mat-panel-title style="margin-top: 10px;" (keydown.Space)="$event.stopPropagation()"
+            (keydown.Enter)="$event.stopPropagation()">
+                <textarea  class="textarea" matinput placeholder="Title" style="font-family: 'Google Sans',Roboto,Arial,sans-serif;font-size: 1rem;
                 font-weight: 500;
-                line-height: 1.5rem;" [(ngModel)]="title"></textarea>
+                line-height: 1.5rem;overflow: hidden;background-color: transparent;" [(ngModel)]="title"></textarea>
 
                 <span class="example-spacer"></span>
                 <div fxLayout="row" fxLayoutAlign="space-evenly center" style="margin-top: 5px;">
 
 
-                    <div *ngIf="div1">
+                    <div *ngIf="div1" style="margin-top: -11px;">
                         <span title="New List">
                             <img src="../../../assets/createnotesimages/tick.svg" class="opacity">
 
@@ -39,8 +40,8 @@
             </mat-panel-title>
 
         </mat-expansion-panel-header>
-        <div *ngIf="div2">
-            <textarea class="textarea" matinput placeholder="Take a note" [(ngModel)]="description"></textarea>
+        <div *ngIf="div2" style="height: fit-content;">
+            <textarea style="overflow: hidden;" class="textarea" matinput placeholder="Take a note" [(ngModel)]="description"></textarea>
 
             <div style="margin-top: 10px; display: flex; flex-direction: row;gap: 250px;">
                 <app-icons></app-icons>
