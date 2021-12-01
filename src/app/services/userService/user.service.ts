@@ -64,4 +64,15 @@ resetPasswordForm(data: any,token:any) {
     }
     return this.httpService.postService('user/reset', reqData,false, headers)
   }
-}
+
+serachuser(reqData:any){
+      let headers = {
+        headers: new HttpHeaders({
+          'Content-type': 'application/json',
+          Authorization: this.token
+        })
+      }
+      return this.httpService.postService('user/searchUserList',reqData,true,headers)
+    }
+  }
+
