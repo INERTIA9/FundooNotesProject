@@ -39,7 +39,7 @@
     font-weight: 300;
     padding-bottom: -1px;
     outline: none;
-   
+    border: 1px solid grey;
     margin-top: -10px;
 }
 .example-container {
@@ -97,7 +97,7 @@ h1.example-app-name {
 .listbuttons:hover{
     background-color: #feefc3;
 }
-.listbuttons .active{
+.listbuttons:active{
     background: #feefc3;
 }
 .listbuttonsbackground {
@@ -110,6 +110,7 @@ h1.example-app-name {
 }
 .mat-form-field + .mat-form-field {
     margin-left: 8px;
+   
 }
 .center {
     margin: auto;
@@ -126,4 +127,7 @@ textarea {
     box-shadow: none;
 
     resize: none; /*remove the resize handle on the bottom right*/
+}
+::ng-deep .mat-input-underline {
+    display: none;
 }
