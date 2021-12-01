@@ -1,10 +1,10 @@
 <div style="flex-direction: row;display: flex; gap: 13px; ">
-    <div style="display: flex;flex-direction: row;gap: 10px;"> 
+    <div style="display: flex;flex-direction: row;gap: 10px;">
         <button *ngIf=!isTrashed mat-icon-button style="border: none; background: transparent;" title="Remind me">
             <img src="../../../assets/icons/bell.svg" class="images">
         </button>
 
-        <button *ngIf=!isTrashed mat-icon-button style="border: none; background: transparent;" title="Collaborator">
+        <button  (click)="openDialogcollab()" *ngIf=!isTrashed mat-icon-button style="border: none; background: transparent;" title="Collaborator">
             <img src="../../../assets/icons/collabarator.svg" class="images">
         </button>
 
@@ -12,14 +12,17 @@
             style="border: none; background: transparent;" title="Change color">
             <img src="../../../assets/icons/paint.svg" class="images">
         </button>
-        <mat-menu #aboveMenu="matMenu" yPosition="above">
-            <div *ngFor='let c of colorarray'>
-                <button (click)="changecolor(c)">
-                    <mat-icon [ngStyle]="{color:c}">circle</mat-icon>
-                </button>
-            </div>
-        </mat-menu>
-
+        <div>
+            <mat-menu #aboveMenu="matMenu" yPosition="above">
+                <div class="pop">
+                    <div *ngFor='let color of colorarray'>
+                        <button style="background-color: transparent;border: none;" (click)="setColor(color)">
+                            <mat-icon c [ngStyle]="{color:color}">circle</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </mat-menu>
+        </div>
 
         <button *ngIf=!isTrashed mat-icon-button style="border: none; background: transparent;" title="Add image">
             <img src="../../../assets/icons/picture.svg" class="images">
@@ -71,7 +74,8 @@
         </button>
 
 
-        <button (click)="onRestore()" mat-icon-button style="border: none; background: transparent;size: 30px;" title="Restore">
+        <button (click)="onRestore()" mat-icon-button style="border: none; background: transparent;size: 30px;"
+            title="Restore">
             <img class="trashbuttons" src="../../../assets/trashimages/restore_from_trash_black_24dp.svg"
                 style="opacity: 0.71;border-radius: 40%;">
         </button>
