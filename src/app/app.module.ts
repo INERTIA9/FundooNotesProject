@@ -30,6 +30,9 @@ import { UpdatenotesComponent } from './Components/updatenotes/updatenotes.compo
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GettrashlistComponent } from './Components/gettrashlist/gettrashlist.component';
 import { GetarchivedlistComponent } from './Components/getarchivedlist/getarchivedlist.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CollaboratorsComponent } from './Components/collaborators/collaborators.component';
+
 
 
 @NgModule({
@@ -48,8 +51,8 @@ import { GetarchivedlistComponent } from './Components/getarchivedlist/getarchiv
     UpdatenotesComponent,
     GettrashlistComponent,
     GetarchivedlistComponent,
-   
-
+    CollaboratorsComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import { GetarchivedlistComponent } from './Components/getarchivedlist/getarchiv
     MatExpansionModule,
     MatMenuModule,
     MatDialogModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSnackBarModule
     
   ],
   providers: [],
