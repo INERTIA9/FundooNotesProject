@@ -19,3 +19,16 @@ background-color:gray
     height: 19px;
     width: 19px;
 }
+.pallete{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.pop{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: white;
+    max-width: 170px;
+    margin-left: 5px;
+  }
