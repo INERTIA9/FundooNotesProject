@@ -4,6 +4,7 @@ import { ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { style } from '@angular/animations';
 import { MatButton } from '@angular/material/button';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -17,10 +18,11 @@ export class DashboardComponent implements OnDestroy {
   panelOpenState = false;
   fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
   token: any
+
  
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router,private _snackBar: MatSnackBar) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -36,6 +38,9 @@ export class DashboardComponent implements OnDestroy {
   }
   logout() {
     localStorage.removeItem('token');
+    this._snackBar.open("You have been Logged Out",'',{
+      duration:2000,
+    })
     this.router.navigateByUrl('/signin');
   }
 
