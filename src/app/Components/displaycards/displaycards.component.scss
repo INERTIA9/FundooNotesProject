@@ -9,6 +9,7 @@
     border-radius: 9px;
     border-width: 1px ;
     margin-bottom: 25px;
+    
 }
 
 .matcardtitle {
@@ -20,15 +21,16 @@
     padding-top: 12px;
 }
 .matcarddescription {
-    font-family: "Google Sans", Roboto, Arial, sans-serif;
-    font-size: 1.125rem;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 1.5rem;
-    word-wrap: break-word;
-    text-overflow: ellipsis; 
-    white-space: nowrap; 
-   
+    display: block;
+    display: -webkit-box;
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1;
+    -webkit-line-clamp: 13;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .example-card .icon{
     visibility: hidden;
@@ -36,3 +38,17 @@
 .example-card:hover .icon{
     visibility: visible;
 }
+.example-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 120px;
+  }
+.minifab{
+    border-radius: 50%;background-color:darkgray;height: 24px;width: 24px;border: 2px solid white;
+  }
+.collabname{
+    margin-left: 7px;
+    margin-top: -15px;
+    font-size: 13px;
+  }
