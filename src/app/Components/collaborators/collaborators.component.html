@@ -24,11 +24,11 @@
         </div>
 
         <div style="margin-top: 10px;">
-            <div fxLayout="column" fxLayoutAlign="start center">
+            <div fxLayout="column" fxLayoutAlign="start">
 
                 <span class="info"> {{collab.firstName}} {{collab.lastName}} </span>
 
-                <span style="margin-left: -7px;color:#5f6368 ;"> {{collab.email}} </span>
+                <span class="info" > {{collab.email}} </span>
             </div>
 
         </div>
@@ -55,6 +55,7 @@
             </div>
 
         </mat-menu>
+        <button style="float: right;background-color: transparent;border: none;" (click)="ontick()">add</button>
     </div>
 
 </div>
