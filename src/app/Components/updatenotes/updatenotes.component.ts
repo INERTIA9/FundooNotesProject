@@ -14,6 +14,7 @@ export class UpdatenotesComponent implements OnInit {
   id: any
   color:any
   sentmsg: any;
+  collabname: any;
   
   constructor(private noteservice: NoteserviceService,
     public dialogRef: MatDialogRef<UpdatenotesComponent>,
