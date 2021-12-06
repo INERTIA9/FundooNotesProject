@@ -1,10 +1,63 @@
+
 <div style="flex-direction: row;display: flex; gap: 13px; ">
-    <div style="display: flex;flex-direction: row;gap: 10px;">
-        <button *ngIf=!isTrashed mat-icon-button style="border: none; background: transparent;" title="Remind me">
+
+    <div style="display: flex;flex-direction: row;gap: 8px;">
+
+        <button [matMenuTriggerFor]="remindme" *ngIf=!isTrashed mat-icon-button
+            style="border: none; background: transparent;" title="Remind me">
             <img src="../../../assets/icons/bell.svg" class="images">
         </button>
 
-        <button  (click)="openDialogcollab()" *ngIf=!isTrashed mat-icon-button style="border: none; background: transparent;" title="Collaborator">
+       
+        <mat-menu style="width: 280px;" #remindme="matMenu" yPosition="below">
+
+            <button mat-menu-item>
+                <span>Reminder:</span>
+            </button>
+
+          
+
+
+            <div mat-list-item class="listbuttons ">
+                <button [matMenuTriggerFor]="time" mat-menu-item class="listbuttonsbackground">
+                    <img src="../../../assets/clock.svg">
+                    <span class="buttonname"> Pick date & time </span>
+                </button>
+
+                <mat-menu #time="matMenu">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Choose a date</mat-label>
+                        <input [(ngModel)]="date" matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker">
+                            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <button (click)="getdate() ; onaddreminder()">save</button>
+                </mat-menu>
+
+            </div>
+
+            <button mat-menu-item>
+
+                <span>Add hello</span>
+            </button>
+
+            <button mat-menu-item>
+
+                <span>Show checkboxes</span>
+            </button>
+
+            <button (click)="ondelete()" mat-menu-item>
+
+                <span>Delete</span>
+            </button>
+
+        </mat-menu>
+
+        <button (click)="openDialogcollab()" *ngIf=!isTrashed mat-icon-button
+            style="border: none; background: transparent;" title="Collaborator">
             <img src="../../../assets/icons/collabarator.svg" class="images">
         </button>
 
