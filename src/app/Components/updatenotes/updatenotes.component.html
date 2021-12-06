@@ -1,17 +1,20 @@
 <div [style.background-color]=data.color >
+   
     <div>
-        <textarea style="background-color: transparent;overflow: hidden;" matInput [(ngModel)]="title" placeholder="title"></textarea>
+        <textarea  class="description" cdkAutosizeMaxRows="10" cdkTextareaAutosize cdkAutosizeMinRows="1"  matInput [(ngModel)]="title" placeholder="title"></textarea>
         <img src="../../../assets/Dashboardimages/push_pin_black_24dp.svg" style="float: right;">
     </div>
 
 
     <div>
-        <textarea style="background-color: transparent;overflow: hidden;" matInput [(ngModel)]="description" placeholder="description"></textarea>
+        <textarea class="description" cdkAutosizeMaxRows="10" cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMinRows="1"  matInput [(ngModel)]="description" placeholder="description"></textarea>
     </div>
+
+    
 
     <div fxLayout="coloumn" fxLayoutAlign="space-between end">
         <div style="margin-left: -22px;">
-            <mat-card style="margin-top: 10px;width: 566px;margin-top: 25px;bottom: --27px;background-color: transparent;margin-left: 6px;">
+            <mat-card class="matcard">
                 <div style="display: flex;flex-direction: row;">
                     <app-icons  [noteCard]='data' (iconstodisplay)="receivemessageTrashtoDisplay($event)"  ></app-icons>
                     <span class="example-spacer"></span>
@@ -20,4 +23,5 @@
             </mat-card>
         </div>
     </div>
+
 </div>
