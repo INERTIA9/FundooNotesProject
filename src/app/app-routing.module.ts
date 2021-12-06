@@ -9,6 +9,7 @@ import { GetallnotesComponent } from './Components/getallnotes/getallnotes.compo
 import { GetarchivedlistComponent } from './Components/getarchivedlist/getarchivedlist.component';
 import { GettrashlistComponent } from './Components/gettrashlist/gettrashlist.component';
 import { IconsComponent } from './Components/icons/icons.component';
+import { RemindersComponent } from './Components/reminders/reminders.component';
 import { SigninComponent } from './Components/signin/signin.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { AuthGuard } from './services/Authorisationservices/auth.guard';
@@ -24,7 +25,8 @@ const routes: Routes = [
     children: [
       { path: 'notes', component: GetallnotesComponent },
       { path: 'gettrash', component: GettrashlistComponent },
-      {path:'getarchive',component:GetarchivedlistComponent}
+      {path:'getarchive',component:GetarchivedlistComponent},
+      { path: 'reminders',component:RemindersComponent}
     ]
   }
 
