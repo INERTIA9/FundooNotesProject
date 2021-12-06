@@ -1,4 +1,4 @@
-<div>
+<div >
     <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
         <mat-toolbar
             style="background: transparent; box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);">
@@ -12,35 +12,41 @@
             <button mat-icon-button class="keepbutton">
                 Fundoo
             </button>
+
             <span class="example-spacer"></span>
+
             <div style="display: flex;flex-direction: row;">
-                <mat-card style="background-color: transparent;border-radius: 10px 10px 10px 10px;border-width: 1px 1px 1px 6px;height: 20px; display: flex;width: 600px;">
-                       <img src="../../../assets/Dashboardimages/search_black_24dp.svg"
-                            style="opacity: 0.54; width: 23px ;height: 23px;">
-                        <textarea style="width: 600px;overflow: hidden;normal: 16px Google Sans,Roboto,RobotoDraft,Helvetica,Arial,sans-serif; font-size: 16px;" matInput type="text" [(ngModel)]="value"></textarea>
-                        <button style="margin-top: -3px;" class="menubutton" *ngIf="value" matSuffix mat-icon-button aria-label="Clear"
-                            (click)="value=''">
-                            <mat-icon>close</mat-icon>
-                        </button>
+                <mat-card
+                    style="background-color: transparent;border-radius: 10px 10px 10px 10px;border-width: 1px 1px 1px 6px;height: 20px; display: flex;width: 600px;flex-shrink: 300px;">
+                    <img src="../../../assets/Dashboardimages/search_black_24dp.svg"
+                        style="opacity: 0.54; width: 23px ;height: 23px;">
+                    <input [(ngModel)]="searchword" (keyup)=" searchtitle($event)"
+                        style="width: 600px;overflow: hidden;font-family: 16px Google Sans,Roboto,RobotoDraft,Helvetica,Arial,sans-serif; font-size: 16px;"
+                        matInput type="text" [(ngModel)]="value">
+                    <button style="margin-top: -3px;" class="menubutton" *ngIf="value" matSuffix mat-icon-button
+                        aria-label="Clear" (click)="value=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
                 </mat-card>
             </div>
 
             <span class="example-spacer"></span>
 
-            <button mat-icon-button style="border: none; background: transparent;">
-                <img src="../../../assets/Dashboardimages/refresh_black_24dp.svg" style="opacity: 0.54;">
-            </button>
-            <button mat-icon-button style="border: none; background: transparent;">
-                <img src="../../../assets/Dashboardimages/listview.svg" style="opacity: 0.54; margin-left: 3px;">
-            </button>
+            <div>
+                <button mat-icon-button style="border: none; background: transparent;">
+                    <img src="../../../assets/Dashboardimages/refresh_black_24dp.svg" style="opacity: 0.54;">
+                </button>
+                <button mat-icon-button style="border: none; background: transparent;">
+                    <img src="../../../assets/Dashboardimages/listview.svg" style="opacity: 0.54; margin-left: 3px;">
+                </button>
 
 
-            <button mat-icon-button style="border: none; background: transparent; margin-left: 10px;">
-                <img src="../../../assets/Dashboardimages/settings_black_24dp.svg" style="opacity: 0.54;">
+                <button mat-icon-button style="border: none; background: transparent; margin-left: 10px;">
+                    <img src="../../../assets/Dashboardimages/settings_black_24dp.svg" style="opacity: 0.54;">
 
-            </button>
+                </button>
 
-
+            </div>
 
             <span class="example-spacer"></span>
 
@@ -75,7 +81,7 @@
 
                         </a>
 
-                        <a mat-list-item class="listbuttons">
+                        <a mat-list-item class="listbuttons" (click)="onreminder()">
                             <button mat-icon-button class="listbuttonsbackground">
                                 <img src="../../../assets/Dashboardimages/notifications_black_24dp.svg">
 
