@@ -1,22 +1,42 @@
-<div style="display: flex;flex-wrap:wrap;gap:15px;flex-direction: row;justify-content: start;margin-left: 100px;margin-top: 50px;position: relative;">
-   
-    <mat-card class="example-card" *ngFor='let note of notesarray' [style.background-color]=note.color>
+<div
+    style="display: flex;flex-wrap:wrap;gap:15px;flex-direction: row;justify-content: start;margin-left: 100px;margin-top: 50px;position: relative;">
+
+    <mat-card class="example-card" *ngFor='let note of notesarray | search:searchword' [style.background-color]=note.color>
 
         <div>
             <img src="../../../assets/Dashboardimages/push_pin_black_24dp.svg"
                 style="float: right; position: relative; opacity: 0.54;">
             <mat-card-title (click)="openDialog(note)" class="matcardtitle">{{note.title}}</mat-card-title>
 
-            <mat-card-content style="overflow: hidden;  text-overflow: ellipsis; " (click)="openDialog(note)">
+            <mat-card-content style="overflow: hidden;height: auto;" (click)="openDialog(note)">
                 <p class="matcarddescription">{{note.description}}</p>
             </mat-card-content>
+
+
         </div>
 
-        <div style="margin-top: 30px;">
-            <app-icons class="icon" [noteCard]='note' (iconstodisplay)="recievefromiconstodisplaycard($event)">
+
+
+        <div class="example-button-container">
+            <div style="display: flex;gap: 2px;">
+                <button class="minifab" *ngFor="let collaborator of note.collaborators" mat-mini-fab color="accent">
+                    <mat-icon class="collabname">{{collaborator.firstName | titlecase}}</mat-icon>
+                </button>
+            </div>
+        </div>
+
+        <div>
+            <span>{{note.reminder}}</span>
+        </div>
+
+        <div style="margin-top: 30px;margin-left: -19px;">
+
+
+            <app-icons class="icon" [noteCard]='note' (iconstodisplay)="recievefromiconstodisplaycard($event)"
+                (datedatainfo)="recievemessagedateinfo($event)">
             </app-icons>
         </div>
-        
+
     </mat-card>
 
 </div>
