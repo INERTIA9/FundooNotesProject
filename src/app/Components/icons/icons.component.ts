@@ -16,10 +16,15 @@ import { CollaboratorsComponent } from '../collaborators/collaborators.component
 export class IconsComponent implements OnInit {
   @Input() noteCard: any
   @Output() iconstodisplay = new EventEmitter<string>();
+  @Output() datedatainfo = new EventEmitter<string>();
+
+
   note: any;
   constructor(private noteservices: NoteserviceService, private activatedroute: ActivatedRoute, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
   isTrashed: boolean = false
   isArchived: boolean = false
+  date: any
+  reminder: any
 
   colorarray = ['#F28B82', '#FBBC05', '#FFF475', '#CCFF90', '#A7FFEB', '#CBF0F8', '#AECBFA', '#D7AEFB', '#FDCFE8', '#E6C9A8', '#E8EAED'];
 
@@ -173,8 +178,31 @@ export class IconsComponent implements OnInit {
 
     });
   }
+
+  getdate() {
+    console.log(this.date);
+  }
+
+
+  //to add reminders
+  onaddreminder() {
+    // this.noteCard.reminder=reminder
+    let req = {
+      noteIdList: [this.noteCard.id],
+      reminder: this.date
+
+    }
+    this.noteservices.addreminder(req).subscribe((response: any) => {
+      console.log(response);
+      this.datedatainfo.emit(response)
+      console.log("time", this.date);
+
+    })
+  }
 }
 function color(arg0: string, color: any) {
   throw new Error('Function not implemented.');
 }
+
+
 
