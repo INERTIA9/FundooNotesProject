@@ -13,16 +13,14 @@ export class RemindersComponent implements OnInit {
   constructor(private noteservice: NoteserviceService) { }
 
   ngOnInit(): void {
-    this.getReminders
+    this.getReminders();
   }
   getReminders() {
-    let notes = []
+   console.log("in getreminders");
     this.noteservice.getreminderservice().subscribe((result: any) => {
       console.log(result);
       this.Notelist = result.data.data
       this.Notelist.reverse()
-
-
     }, error => {
       console.log(error);
 
