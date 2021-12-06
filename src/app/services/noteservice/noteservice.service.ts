@@ -39,6 +39,19 @@ id:any
     }
     return this.httpService.getSevice('notes/getNotesList', true, headers)
   }
+//to move to reminders
+addreminder(reqPayload:any){
+  let headers = {
+    headers: new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': this.token
+    })
+
+  }
+  return this.httpService.postService('notes/addUpdateReminderNotes',reqPayload, true, headers)
+}
+
+//to get reminder list
   getreminderservice() {
     let headers = {
       headers: new HttpHeaders({
