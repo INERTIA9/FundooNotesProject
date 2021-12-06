@@ -32,6 +32,10 @@ import { GettrashlistComponent } from './Components/gettrashlist/gettrashlist.co
 import { GetarchivedlistComponent } from './Components/getarchivedlist/getarchivedlist.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CollaboratorsComponent } from './Components/collaborators/collaborators.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatNativeDateModule } from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { SearchPipe } from './Components/searchpipe/search.pipe';
 
 
 
@@ -52,7 +56,8 @@ import { CollaboratorsComponent } from './Components/collaborators/collaborators
     GettrashlistComponent,
     GetarchivedlistComponent,
     CollaboratorsComponent,
-  
+    SearchPipe,
+    
   ],
   imports: [
     BrowserModule,
@@ -73,10 +78,16 @@ import { CollaboratorsComponent } from './Components/collaborators/collaborators
     MatMenuModule,
     MatDialogModule,
     FlexLayoutModule,
-    MatSnackBarModule
-    
+    MatSnackBarModule,
+    MatButtonModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+   
+  
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
