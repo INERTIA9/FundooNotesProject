@@ -1,3 +1,3 @@
 <app-createnotes  (messageEvent)="receiveMessage($event)"></app-createnotes>
 
-<app-displaycards [notesarray]="Notelist" (displaytogetallnotes)="receiveMessagefromdisplaycard($event)"></app-displaycards>
+<app-displaycards [notesarray]="Notelist" (displaytogetallnotes)="receiveMessagefromdisplaycard($event)" (dateinfofromdisplay)="recievedateinfofromdisplaycard($event)"></app-displaycards>
