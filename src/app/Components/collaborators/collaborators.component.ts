@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { NoteserviceService } from 'src/app/services/noteservice/noteservice.service';
 import { UserService } from 'src/app/services/userService/user.service';
 import { UpdatenotesComponent } from '../updatenotes/updatenotes.component';
+import { DataService } from 'src/app/services/dataservice/data.service';
 
 @Component({
   selector: 'app-collaborators',
@@ -20,21 +21,22 @@ export class CollaboratorsComponent implements OnInit {
   id: any
   userId: any;
   userlist: any
-  userArray:any
-  collaboratorlist:any
-  collaboratordata:any
+  userArray: any
+  collaboratorlist: any
+  collaboratordata: any
+  collaborators: any;
 
 
-  constructor(private noteservice: NoteserviceService, private userservice: UserService,
+  constructor(private noteservice: NoteserviceService, private userservice: UserService, private dataservice: DataService,
     public dialogRef: MatDialogRef<CollaboratorsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
-      console.log("inside collaborator",data);
-      this.collaboratordata=data
+    console.log("inside collaborator", data);
+    this.collaboratordata = data
   }
 
   ngOnInit(): void {
-    this.collaboratorlist=this.collaboratordata.collaborators
+    this.collaboratorlist = this.collaboratordata.collaborators
   }
   addcollab() {
     let reqPayload = {
@@ -42,19 +44,35 @@ export class CollaboratorsComponent implements OnInit {
       lastName: this.userArray.lastName,
       email: this.userArray.email,
       userId: this.userArray.userId
-
     }
-
     console.log(reqPayload);
-
     this.noteservice.addcollaborators(reqPayload, this.data.id).subscribe((result: any) => {
       console.log(result);
       this.collabarray = result.data.data
+      this.dataservice.changeMessage(this.collabarray)
     }, error => {
       console.log(error);
 
     })
 
+  }
+
+  ontick(){
+    let reqPayload = {
+      firstName: this.userArray.firstName,
+      lastName: this.userArray.lastName,
+      email: this.userArray.email,
+      userId: this.userArray.userId
+    }
+    this.collaborators.push(this.collaboratordata)
+    this.noteservice.addcollaborators(reqPayload, this.data.id).subscribe((result: any) => {
+      console.log(result);
+      this.collabarray = result.data.data
+      this.dataservice.changeMessage(this.collabarray)
+    }, error => {
+      console.log(error);
+
+    })
   }
 
   onClose() {
@@ -76,8 +94,8 @@ export class CollaboratorsComponent implements OnInit {
 
   useremail(users: any) {
     this.collabemail = users.email
-    this.userArray=users
+    this.userArray = users
     console.log(users);
-    
+
   }
 }
